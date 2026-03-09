@@ -1,0 +1,213 @@
+"Division by Zero" by Ted Chiang
+
+NOTE: This file contains a detailed synopsis and scene-by-scene summary of the story,
+intended for use by the AI agents in this simulation. For richer results, replace this
+file with the full text of the novella from Ted Chiang's collection
+"Stories of Your Life and Others" (2002).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OVERVIEW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"Division by Zero" is a short story (novella) by Ted Chiang, published in 1991. It
+interweaves two narratives: the collapse of a brilliant mathematician's mental world
+when she discovers arithmetic is self-contradictory, and the corresponding collapse
+of her marriage. The story is structured in numbered short sections, alternating
+between the perspectives of two characters, with occasional mathematical interludes
+written in an italicized, formal register that mirror the emotional content.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+THE CHARACTERS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+RENEE: A brilliant research mathematician, likely in her 30s. Her identity is
+entirely grounded in mathematics — she believes math is the one domain of absolute
+truth, beauty, and certainty. She is passionate, driven, and methodical. She has
+devoted her life to proofs. She is married to Carl.
+
+CARL: Renee's husband, a college-level math instructor. He is competent but not a
+genius like Renee. He loves her deeply and has always admired her from afar, even
+feeling a certain awe at her abilities. He is steady, caring, and devoted, but
+increasingly helpless in the face of what happens to her.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+THE MATHEMATICAL STORY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Renee has accomplished something extraordinary and devastating. Working from the
+standard Peano axioms of arithmetic — the same axioms mathematicians have trusted for
+over a century — she has constructed a formal proof that arithmetic is inconsistent.
+Specifically, she has derived both a mathematical statement and its negation from the
+same set of axioms. In other words, she has proven that 1 = 2, or equivalently, that
+any statement whatsoever can be proven true within the system of arithmetic.
+
+This is not a version of Gödel's incompleteness theorems (which showed that some true
+statements cannot be proven within a given system). Renee's result is worse: she has
+shown the system is not merely incomplete but outright self-contradictory. An
+inconsistent formal system is mathematically worthless — from it, you can prove
+anything and its opposite. The entire edifice of mathematics as a source of truth
+collapses.
+
+For Renee, this is not an abstract intellectual problem. Mathematics was her religion,
+her bedrock, the one thing she believed was more real and more trustworthy than
+anything else. The proof destroys not just her work but her entire worldview and
+sense of meaning.
+
+The mathematical interludes in the story present formal logic and set theory concepts —
+including paradoxes, self-referential systems, and the Liar's paradox ("This statement
+is false") — that function as structural and emotional mirrors to the human story.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+THE PERSONAL STORY — SCENE BY SCENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+EARLY SCENES — THE DISCOVERY:
+
+Renee finishes the proof. She goes through it again and again, hoping to find the
+error. There is no error. She tells Carl what she has found. Carl struggles to fully
+understand the technical details, but he sees immediately that it has shattered her.
+He tries to be supportive. He says it will be seen as a landmark result. She says:
+"It doesn't mean anything. None of it means anything now."
+
+Carl reflects on how he fell in love with Renee — her brilliance, her certainty, her
+absolute commitment to mathematical truth. He has always lived somewhat in her shadow,
+but it never bothered him. He loved watching her work. He loved that she had something
+he had found in nothing else.
+
+RENEE'S DETERIORATION:
+
+In the weeks after the discovery, Renee stops working. She begins to withdraw. She
+sits at the table and stares. She stops eating regularly. She stops taking care of
+herself. Carl tries to reach her, to engage her in conversations, to remind her that
+there is life beyond the proof, that she is loved. She responds briefly and then
+retreats.
+
+She tries to explain to Carl: "It's not that I've lost something. It's that everything
+I believed in turns out to have been nothing." She had always thought that no matter
+what happened, mathematics was real and true. Now she knows it isn't. She cannot find
+a new foundation.
+
+Carl feels helpless. He does not know how to grieve the loss of a belief system he
+never shared. He reaches out to her colleagues; they are stunned by the proof but
+don't grasp that Renee herself is in crisis.
+
+THE SUICIDE ATTEMPT:
+
+Renee attempts suicide. The story does not dramatize this with graphic detail but is
+clear about what happened. Carl finds her. He calls for help. She is hospitalized.
+
+THE PSYCHIATRIC WARD:
+
+Carl visits Renee in the psychiatric hospital. She is calm — eerily, mechanically
+calm. She is medicated. She does not seem to be in pain anymore, but she doesn't seem
+present either. She is cooperative with the staff and follows the routine. She speaks
+to Carl but with a strange detachment, as if she is narrating someone else's life.
+
+Carl tries to tell her how much he loves her, how much he wants her back, how they
+will figure this out together. She listens. She nods. But she seems to be observing
+him from a great distance. She says something like: "I know you love me. I believe
+that you do. But I can't feel it the way I used to." The system she used to verify
+meaning and love — her mind — has been revealed as faulty. She no longer trusts her
+own internal states.
+
+AFTER THE HOSPITAL:
+
+Renee is discharged and comes home. She is functioning — she cooks, she cleans, she
+speaks. But she is not herself. The brilliant, passionate woman Carl loved has been
+replaced by someone quieter, more cautious, more careful with every word and feeling,
+as if she no longer trusts any of it.
+
+Carl tries to rebuild the relationship. He is patient. He is loving. He shows up every
+day. But he begins to feel something he is ashamed of: a kind of grief not just for
+Renee but for himself. He had built his own sense of meaning partly on his love for
+her — on being her partner, on being the person who loved the genius. Now he wonders
+whether what he felt was love or just a kind of borrowed certainty.
+
+THE ENDING:
+
+The final sections of the story follow Carl as he contemplates leaving. He is not
+angry. He does not blame Renee. He still cares for her. But he feels that something
+essential between them has been severed — not just by her breakdown, but by what the
+breakdown revealed about the foundations of their relationship. He wonders whether he
+ever truly knew her, or whether he was in love with the version of her that believed
+in things absolutely.
+
+The story ends ambiguously. Carl is standing at the door — literally or figuratively —
+and the reader does not know if he leaves. The final image is of him holding the door
+handle, suspended between staying and going.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEY THEMES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. THE COLLAPSE OF CERTAINTY
+   What happens when the foundation of your entire worldview is proven false? Renee
+   had no backup system. For her, mathematics was not just a career — it was a
+   metaphysics. Its collapse was existential, not professional.
+
+2. DEPRESSION AND THE LOSS OF MEANING
+   The story is a precise portrait of a certain kind of depression: one that comes not
+   from external tragedy but from internal philosophical collapse. Renee is not sad in
+   the ordinary sense — she has lost access to the machinery of meaning-making itself.
+   Her suicide attempt follows logically from her premise: if nothing is true, why
+   continue?
+
+3. LOVE AND ITS LIMITS
+   Carl's love for Renee is real, but the story questions what love is actually built
+   on. Is Carl's devotion to Renee love for her, or love for what she represented? Can
+   love survive when the beloved is fundamentally changed? Can a relationship survive
+   when one person's crisis reveals the other person's own uncertainties?
+
+4. MATHEMATICS AS RELIGION
+   The story treats mathematical truth the way a religious person might treat God —
+   as an absolute, external, and reliable source of meaning. Renee's discovery is like
+   discovering that God does not exist, or is self-contradictory. The mathematical
+   interludes serve as something like scripture, and their collapse into paradox
+   mirrors the theological crisis.
+
+5. SELF-REFERENCE AND PARADOX
+   The story's structure is itself self-referential: it is a story about a
+   self-contradictory system, and its narrative loops — the way different sections
+   mirror each other, the way Carl's reflections on the past contradict his present
+   feelings — enact formally what the math describes thematically. The Liar's paradox
+   ("This statement is false") runs through the story as a structural motif.
+
+6. THE RELATIONSHIP BETWEEN MIND AND FEELING
+   After her breakdown, Renee can no longer trust her own internal states. She knows
+   Carl loves her intellectually but cannot feel it. This raises the question: what is
+   an emotion if it cannot be verified? What is love if the person experiencing it
+   cannot access it? The story suggests that our inner lives depend on a kind of
+   informal "axiom system" — shared assumptions about meaning — that we rarely examine
+   until they fail.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MEMORABLE LINES / MOMENTS (paraphrased)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- Renee, on her proof: "It doesn't mean anything. None of it means anything now."
+
+- Carl reflecting on Renee: He had always admired how certain she was. It was one of
+  the things he loved most about her. Now he wonders if he loved her certainty more
+  than he loved her.
+
+- Renee, in the hospital: "I know you love me. I believe that you do. I just can't
+  feel it."
+
+- Carl, near the end: He is still in love with her, he thinks. But he no longer knows
+  what that means. He no longer knows if that is enough.
+
+- The mathematical interlude on the Liar's paradox: A system that can generate
+  contradictions cannot be trusted to generate truths. Once inconsistency is admitted,
+  the entire system is compromised.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TONE AND STYLE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The prose is quiet, precise, and restrained. Chiang never melodramatizes. The
+emotional devastation of the story is conveyed through understatement and through the
+structural parallels between the mathematical sections and the human sections. The
+story trusts the reader to feel what the characters cannot fully express.
+
+The mathematical interludes are written in a clean, formal register, and their
+increasing absurdity (as the inconsistency spreads) mirrors Renee's disintegration.

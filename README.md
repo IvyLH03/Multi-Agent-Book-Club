@@ -41,3 +41,41 @@ All reader agents are brought together to start a discussion, led by the discuss
 ## Outcomes & Expectations
 
 We want to see if the agents will “act” according to their personalities — whether their different opinions will spark new ideas and perspectives, or whether the agents will get stuck in a loop and converge to a single viewpoint. We also want to see if their different background stories prompt interesting opinions, or if the agents end up only reproducing what was available in their model training data.
+
+
+---
+
+## Project Structure
+
+```
+.
+├── main.py          ← entry point (run this)
+├── agents.py        ← Agent & DiscussionGuide classes + all 4 system prompts
+├── simulation.py    ← Simulation orchestration (Stage 1 + Stage 2)
+├── story.txt        ← detailed synopsis of "Division by Zero"
+├── requirements.txt
+├── .env.example
+└── output/          ← auto-created; discussion logs saved here
+```
+
+---
+
+## How to Run
+
+1. Copy `.env.example` → `.env` and add your OpenAI API key.
+2. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+3. *(Optional)* Replace `story.txt` with the full text of *Division by Zero* for richer agent responses.
+4. Run the simulation:
+   ```
+   python main.py
+   ```
+
+**Optional flags:**
+- `--rounds 2` — set number of discussion rounds (default: 3)
+- `--story myfile.txt` — use a custom story file
+- `--stage1-only` — run only Stage 1 (private reading & note-taking)
+
+The full transcript — including each agent's private inner thoughts — is automatically saved to `output/discussion_<timestamp>.txt`.
