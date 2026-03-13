@@ -6,16 +6,23 @@ Stage 1 — Reading:
   Notes are stored on the agent object and never shared with other agents.
 
 Stage 2 — Discussion:
-  Olivia (the guide) opens the meeting.
-  Reader agents take turns responding (Paul → Vanessa → Tyler).
-  Each agent produces a private inner thought and a public spoken response.
-  Only the spoken response is added to the shared transcript.
-  Olivia moderates between rounds, then closes the meeting.
+  Part A — Structured rounds:
+    Olivia opens the meeting.
+    Reader agents take turns (Paul → Vanessa → Tyler), each producing a
+    private inner thought and a public spoken response.
+    Olivia moderates between rounds.
+  Part B — Free discussion:
+    Olivia signals the shift to open conversation.
+    Agents respond casually and reactively — no inner thought, shorter turns.
+    Olivia gives a light nudge each exchange to direct or open the floor;
+    the named agent (or next in rotation) replies.
+    Olivia closes the meeting at the end.
 
 Output is printed to the console and saved to output/discussion_<timestamp>.txt.
 """
 
 import os
+import re
 from datetime import datetime
 
 from agents import Agent, DiscussionGuide, AGENT_CONFIGS
@@ -142,7 +149,93 @@ class Simulation:
                 self.public_history.append({"speaker": "Olivia", "content": moderation})
                 self._log(f"Olivia: {moderation}")
 
-        # — Closing —
+    # ─────────────────────────────────────────────
+    # Free discussion helpers
+    # ─────────────────────────────────────────────
+
+    def _pick_next_speaker(self, last_content: str, last_speaker_name: str) -> Agent:
+        """
+        Determine who speaks next in free discussion.
+        Only the last sentence of `last_content` is scanned for a name, because
+        that's where direct address lives ("...What do you think, Tyler?").
+        Scanning the full text causes false positives when earlier names are
+        mentioned in passing ("I see your point, Paul, but... Tyler?").
+        Falls back to the next reader in rotation if no name is found.
+        """
+        # Split on sentence-ending punctuation and take the final fragment
+        sentences = [s.strip() for s in re.split(r'[.!?]', last_content.strip()) if s.strip()]
+        search_text = sentences[-1] if sentences else last_content
+
+        for agent in self.readers:
+            if agent.name == last_speaker_name:
+                continue  # the speaker can't address themselves
+            if re.search(r'\b' + re.escape(agent.name) + r'\b', search_text, re.IGNORECASE):
+                return agent
+        # Fallback: next in rotation
+        names = [a.name for a in self.readers]
+        try:
+            idx = names.index(last_speaker_name)
+        except ValueError:
+            idx = -1
+        return self.readers[(idx + 1) % len(self.readers)]
+
+    # ─────────────────────────────────────────────
+    # Part B — Free discussion
+    # ─────────────────────────────────────────────
+
+    def stage2b_free_discussion(self, num_exchanges: int = 24, olivia_every: int = 4):
+        self._log()
+        self._divider("═")
+        self._log("STAGE 2B  ·  FREE DISCUSSION")
+        self._divider("═")
+        self._log()
+
+        # Olivia signals the shift, then mostly steps back
+        transition = self.guide.transition_to_free_discussion(self.public_history)
+        self.public_history.append({"speaker": "Olivia", "content": transition})
+        self._log(f"Olivia: {transition}")
+        self._log()
+
+        # Kick off with the first reader so there's something to react to
+        first_speaker = self.readers[0]
+        first_reply = first_speaker.free_reply(self.public_history)
+        self.public_history.append({"speaker": first_speaker.name, "content": first_reply})
+        self._log(f"{first_speaker.name}: {first_reply}")
+        self._log()
+        last_speaker_name = first_speaker.name
+        last_content = first_reply
+
+        for exchange_num in range(1, num_exchanges + 1):
+            # Olivia steps in lightly every olivia_every exchanges
+            if exchange_num % olivia_every == 0:
+                nudge = self.guide.nudge(self.public_history)
+                self.public_history.append({"speaker": "Olivia", "content": nudge})
+                self._log(f"Olivia: {nudge}")
+                self._log()
+                # Olivia's nudge may name someone; treat it as the last content for picking
+                last_content = nudge
+                last_speaker_name = "Olivia"  # so _pick_next_speaker won't skip Olivia
+
+            # Readers talk directly to each other
+            speaker = self._pick_next_speaker(last_content, last_speaker_name)
+            reply = speaker.free_reply(self.public_history)
+            self.public_history.append({"speaker": speaker.name, "content": reply})
+            self._log(f"{speaker.name}: {reply}")
+            self._log()
+
+            last_speaker_name = speaker.name
+            last_content = reply
+
+    # ─────────────────────────────────────────────
+    # Entry point
+    # ─────────────────────────────────────────────
+
+    def run(self, story_text: str, num_rounds: int = 3, free_exchanges: int = 24, olivia_every: int = 4):
+        """Run both stages, then save the full log to a file."""
+        self.stage1_reading(story_text)
+        self.stage2_discussion(num_rounds)
+        self.stage2b_free_discussion(free_exchanges, olivia_every)
+        # Closing (moved here so it wraps both parts)
         self._log()
         self._divider("─")
         self._log("  Olivia closes the meeting:")
@@ -151,13 +244,4 @@ class Simulation:
         self._log(f"\nOlivia: {closing}")
         self._log()
         self._divider("═")
-
-    # ─────────────────────────────────────────────
-    # Entry point
-    # ─────────────────────────────────────────────
-
-    def run(self, story_text: str, num_rounds: int = 3):
-        """Run both stages, then save the full log to a file."""
-        self.stage1_reading(story_text)
-        self.stage2_discussion(num_rounds)
         self._save()

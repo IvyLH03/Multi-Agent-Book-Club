@@ -83,6 +83,20 @@ def build_parser() -> argparse.ArgumentParser:
         help="Path to the story text file (default: story.txt).",
     )
     parser.add_argument(
+        "--free-exchanges",
+        type=int,
+        default=8,
+        metavar="N",
+        help="Number of exchanges in the free discussion phase (default: 8).",
+    )
+    parser.add_argument(
+        "--olivia-every",
+        type=int,
+        default=4,
+        metavar="N",
+        help="Olivia steps in every N exchanges during free discussion (default: 4).",
+    )
+    parser.add_argument(
         "--stage1-only",
         action="store_true",
         help="Run only Stage 1 (private reading / note-taking) and exit.",
@@ -123,7 +137,7 @@ def main():
         sim.stage1_reading(story_text)
         sim._save()
     else:
-        sim.run(story_text, num_rounds=args.rounds)
+        sim.run(story_text, num_rounds=args.rounds, free_exchanges=args.free_exchanges, olivia_every=args.olivia_every)
 
 
 if __name__ == "__main__":

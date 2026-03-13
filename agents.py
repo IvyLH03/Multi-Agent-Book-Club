@@ -277,6 +277,42 @@ class Agent:
 
         return {"inner_thought": inner_thought, "spoken": spoken}
 
+    def free_reply(self, conversation_history: list[dict]) -> str:
+        """
+        Free discussion turn — very short and direct.
+        No inner thought. 1–2 sentences, reactive, conversational.
+        Agents may address each other by name.
+        """
+        transcript = format_transcript(conversation_history)
+
+        system_with_notes = self.system_prompt
+        if self.private_notes:
+            system_with_notes += (
+                "\n\n--- YOUR PRIVATE READING NOTES (not visible to other participants) ---\n"
+                + self.private_notes
+            )
+
+        # Surface the last thing said so the agent reacts to it specifically
+        last_entry = conversation_history[-1] if conversation_history else {}
+        last_speaker = last_entry.get("speaker", "someone")
+        last_said = last_entry.get("content", "")
+
+        messages = [
+            {"role": "system", "content": system_with_notes},
+            {
+                "role": "user",
+                "content": (
+                    f"{last_speaker} just said: \"{last_said}\"\n\n"
+                    "Respond directly to that in 1–2 short sentences — as if you're in the middle of"
+                    " a real conversation. Be immediate and natural. You can agree, push back,"
+                    " ask them something, or share one sharp thought their words sparked."
+                    " Address them or another person by name if it feels right."
+                    " No formality, no setup — just say the thing."
+                ),
+            },
+        ]
+        return self._chat(messages, temperature=1.0)
+
 
 class DiscussionGuide(Agent):
     """Olivia — manages the discussion flow without participating in it."""
@@ -317,6 +353,54 @@ class DiscussionGuide(Agent):
                     "- Introduce a new angle or theme worth exploring\n"
                     "- Gently redirect if the conversation has drifted\n\n"
                     "Stay neutral. Be warm and purposeful."
+                ),
+            },
+        ]
+        return self._chat(messages)
+
+    def transition_to_free_discussion(self, conversation_history: list[dict]) -> str:
+        """Signal the shift from structured rounds to open free discussion."""
+        transcript = format_transcript(conversation_history)
+        messages = [
+            {"role": "system", "content": self.system_prompt},
+            {
+                "role": "user",
+                "content": (
+                    "The structured part of the discussion is done. Here's what was covered:\n\n"
+                    "---\n"
+                    f"{transcript}\n"
+                    "---\n\n"
+                    "Briefly transition the group into a more open, casual conversation (2–3 sentences).\n"
+                    "Acknowledge the ideas that came up so far, then invite everyone to just talk\n"
+                    "freely — react to each other, follow threads, go where the conversation leads.\n"
+                    "Be warm and light; this is the part where people loosen up."
+                ),
+            },
+        ]
+        return self._chat(messages)
+
+    def nudge(self, conversation_history: list[dict]) -> str:
+        """
+        A very light moderation touch during free discussion.
+        May name a specific participant or leave the floor open.
+        Returns 1–2 sentences.
+        """
+        transcript = format_transcript(conversation_history)
+        messages = [
+            {"role": "system", "content": self.system_prompt},
+            {
+                "role": "user",
+                "content": (
+                    "The group is in free discussion. Here's the conversation so far:\n\n"
+                    "---\n"
+                    f"{transcript}\n"
+                    "---\n\n"
+                    "Give a very light nudge to keep the conversation going (1–2 sentences max).\n"
+                    "You can:\n"
+                    "- Direct a question or reaction to a specific person by name\n"
+                    "  (Paul, Vanessa, or Tyler) — e.g. 'Tyler, does that land for you?'\n"
+                    "- Or simply leave the floor open — e.g. 'Anyone want to push back on that?'\n"
+                    "Stay minimal. The participants should do the talking."
                 ),
             },
         ]

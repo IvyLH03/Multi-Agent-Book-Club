@@ -30,11 +30,14 @@ In this project, we want to test AI’s role as a reader/evaluator by running a 
 
 ## Simulation Stages
 
-**Stage 1 — Reading**
-Each AI agent is provided with the novella. They are asked to read through the story, summarize what they think is important, and take notes on any questions or opinions they want to share later in the discussion. This reading process is kept separate for each agent — the thoughts of one agent will not be visible to the others.
+**Stage 1 — Reading (private)**
+Each agent independently reads the story and writes private notes — what stood out, their emotional and intellectual reactions, personal connections, and talking points they want to raise. Notes are never shared with the other agents; they are injected only into that agent's own context during the discussion.
 
-**Stage 2 — Discussion**
-All reader agents are brought together to start a discussion, led by the discussion guide agent. They share their thoughts on the story and debate the topics. A program will be written to set up and manage the simulation. Each agent’s full context (the literary reference and their notes from Stage 1) will be available to them individually. The agents will then take turns participating in the discussion — each turn, they will have time to think and then speak. The spoken output will be publicly visible to all other agents, but their private thoughts will be visible only to themselves.
+**Stage 2A — Structured Discussion**
+Olivia opens the meeting with a first question. The three readers then take turns in fixed order (Paul → Vanessa → Tyler). Each turn, the agent privately thinks first (an inner thought visible only in the log), then speaks. Only the spoken response enters the shared transcript. Olivia moderates briefly between rounds to deepen or redirect the conversation.
+
+**Stage 2B — Free Discussion**
+After the structured rounds, Olivia transitions the group into open conversation and then mostly steps back. Readers talk *directly to each other* — short, reactive, 1–2 sentence responses. Who speaks next is determined by who the last speaker addressed by name; if no one is named, the next reader in rotation responds. Olivia steps in lightly every few exchanges with a one-line nudge to keep things from stalling, then closes the meeting at the end.
 
 ---
 
@@ -74,7 +77,9 @@ We want to see if the agents will “act” according to their personalities —
    ```
 
 **Optional flags:**
-- `--rounds 2` — set number of discussion rounds (default: 3)
+- `--rounds N` — number of structured discussion rounds (default: 3)
+- `--free-exchanges N` — number of back-and-forth exchanges in the free discussion phase (default: 8)
+- `--olivia-every N` — how often Olivia steps in during free discussion, in exchanges (default: 4)
 - `--story myfile.txt` — use a custom story file
 - `--stage1-only` — run only Stage 1 (private reading & note-taking)
 
